@@ -1,5 +1,6 @@
+version: "3.8"
 services:
-  db:
+  postgres:
     image: postgres:15
     restart: always
     environment:
@@ -9,4 +10,6 @@ services:
     ports:
       - ${DB_PORT}:5432
     volumes:
-      - ./docker-data/db:/var/lib/postgresql/data
+      - postgres:/var/lib/postgresql/data
+volumes:
+  postgres:
