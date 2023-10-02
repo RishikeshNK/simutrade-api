@@ -5,6 +5,7 @@ interface RefreshToken {
   id: string;
   hashedToken: string;
   userId: string;
+  revoked: boolean;
 }
 
 async function addRefreshTokenToWhitelist({ jti, refreshToken, userId }: { jti: string, refreshToken: string, userId: string }): Promise<RefreshToken> {
