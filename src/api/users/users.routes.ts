@@ -21,4 +21,4 @@ router.get('/profile', isAuthenticated, async (req: CustomRequest, res: Response
   }
 });
 
-module.exports = router;
+export default router;

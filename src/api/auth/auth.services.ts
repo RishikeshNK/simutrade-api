@@ -38,7 +38,7 @@ async function deleteRefreshToken(id: string): Promise<RefreshToken> {
 }
 
 async function revokeTokens(userId: string): Promise<{ success: boolean }> {
-    const result = await db.refreshToken.updateMany({
+    await db.refreshToken.updateMany({
       where: {
         userId,
       },

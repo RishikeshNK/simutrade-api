@@ -30,10 +30,10 @@ model RefreshToken {
 }
 
 model Stock {
-  id      String   @id @unique @default(uuid())
-  ticker  String   @unique
-  close   Decimal
-  holdings Holding[]
+  id           String        @id @unique @default(uuid())
+  ticker       String        @unique
+  close        Decimal
+  holdings     Holding[]
   transactions Transaction[]
 }
 
@@ -47,15 +47,15 @@ model Holding {
 }
 
 model Transaction {
-  id         String   @id @unique @default(uuid())
-  userId     String
-  User       User     @relation(fields: [userId], references: [id])
-  stockId    String
-  stock      Stock    @relation(fields: [stockId], references: [id])
-  quantity   Decimal
-  price      Decimal
+  id              String          @id @unique @default(uuid())
+  userId          String
+  User            User            @relation(fields: [userId], references: [id])
+  stockId         String
+  stock           Stock           @relation(fields: [stockId], references: [id])
+  quantity        Decimal
+  price           Decimal
   transactionType TransactionType
-  createdAt  DateTime @default(now())
+  createdAt       DateTime        @default(now())
 }
 
 enum TransactionType {

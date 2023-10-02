@@ -1,19 +1,21 @@
 import jwt from 'jsonwebtoken';
 
-// Fix any
+interface User {
+  id: string;
+}
 
 interface Tokens {
   accessToken: string;
   refreshToken: string;
 }
 
-function generateAccessToken(user: any): string {
+function generateAccessToken(user: User): string {
   return jwt.sign({ userId: user.id }, process.env.JWT_ACCESS_SECRET as string, {
     expiresIn: '5m',
   });
 }
 
-function generateRefreshToken(user: any, jti: string): string {
+function generateRefreshToken(user: User, jti: string): string {
   return jwt.sign({
     userId: user.id,
     jti,
@@ -22,7 +24,7 @@ function generateRefreshToken(user: any, jti: string): string {
   });
 }
 
-function generateTokens(user: any, jti: string): Tokens {
+function generateTokens(user: User, jti: string): Tokens {
   const accessToken = generateAccessToken(user);
   const refreshToken = generateRefreshToken(user, jti);
 

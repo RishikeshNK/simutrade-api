@@ -20,9 +20,9 @@ export function isAuthenticated(req: CustomRequest, res: Response, next: NextFun
     const token = authorization.split(' ')[1];
     const payload = jwt.verify(token, process.env.JWT_ACCESS_SECRET as Secret);
     req.payload = payload;
-  } catch (err: any) {
+  } catch (err) {
     res.status(401);
-    if (err.name === 'TokenExpiredError') {
+    if (err instanceof Error && err.name === 'TokenExpiredError') {
       throw new Error(err.name);
     }
     throw new Error('Un-Authorized');
