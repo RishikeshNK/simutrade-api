@@ -1,15 +1,6 @@
-import { PrismaClient } from "@prisma/client";
-import express, { Request, Response } from "express";
+import app from './app';
 
-// const prisma = new PrismaClient();
-const app = express();
-
-app.use(express.json());
-
-app.get("/api/healthcheck", async (req: Request, res: Response) => {
-  res.status(200).send({ message: "SimuTrade API is healthy" });
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Listening: http://localhost:${port}`);
 });
-
-app.listen(3000, () =>
-  console.log("REST API server ready at: http://localhost:3000")
-);
