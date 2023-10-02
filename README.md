@@ -9,6 +9,19 @@ SimuTrade API is a RESTful API built using [Express.js](https://expressjs.com/) 
 - [Node.js](https://nodejs.org/en/download/package-manager/)
 - [Docker](https://www.docker.com/)
 
+### Route Map
+- [x] POST /api/v1/auth/register
+- [x] POST /api/v1/auth/login
+- [x] POST /api/v1/auth/refreshToken
+- [x] POST /api/vi/auth/revokeRefreshTokens (For Demo Only!)
+- [ ] GET /api/v1/users/profile (Work In Progress)
+- [ ] GET /api/v1/users/holdings
+- [ ] GET /api/v1/users/trades
+- [ ] GET /api/v1/stocks
+- [ ] POST /api/v1/trade/buy
+- [ ] POST /api/v1/trade/sell
+- [ ] POST /api/v1/trade/quote
+
 ### Usage
 
 To get started with SimuTrade API, follow the steps below:
