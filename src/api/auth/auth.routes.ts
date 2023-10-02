@@ -131,6 +131,12 @@ router.post('/refreshToken', async (req: Request, res: Response, next: NextFunct
 router.post('/revokeRefreshTokens', async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { userId } = req.body;
+
+    if (!userId) {
+      res.status(400)
+      throw new Error("You must provide a userId.")
+    }
+
     await revokeTokens(userId);
     res.json({ message: `Tokens revoked for user with id #${userId}` });
   } catch (err) {
