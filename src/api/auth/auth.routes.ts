@@ -60,6 +60,7 @@ router.post('/login', async (req: Request, res: Response, next: NextFunction) =>
     }
 
     const validPassword = await bcrypt.compare(password, existingUser.password);
+    
     if (!validPassword) {
       res.status(403);
       throw new Error('Invalid login credentials.');

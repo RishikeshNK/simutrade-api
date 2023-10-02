@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import jwt, { JwtPayload, Secret } from 'jsonwebtoken'
 
-import ErrorResponse from './interfaces/ErrorResponse';
+import ErrorResponse from './interfaces/ErrorResponse'
 
 interface CustomRequest extends Request {
   payload?: JwtPayload | string;
@@ -13,7 +13,7 @@ export function isAuthenticated(req: CustomRequest, res: Response, next: NextFun
 
   if (!authorization) {
     res.status(401);
-    throw new Error('🚫 Un-Authorized 🚫');
+    throw new Error('Un-Authorized');
   }
 
   try {
@@ -25,7 +25,7 @@ export function isAuthenticated(req: CustomRequest, res: Response, next: NextFun
     if (err.name === 'TokenExpiredError') {
       throw new Error(err.name);
     }
-    throw new Error('🚫 Un-Authorized 🚫');
+    throw new Error('Un-Authorized');
   }
 
   return next();
@@ -34,7 +34,7 @@ export function isAuthenticated(req: CustomRequest, res: Response, next: NextFun
 
 export function notFound(req: Request, res: Response, next: NextFunction) {
   res.status(404);
-  const error = new Error(`🔍 - Not Found - ${req.originalUrl}`);
+  const error = new Error(`Route Not Found - ${req.originalUrl}`);
   next(error);
 }
 
@@ -43,7 +43,6 @@ export function errorHandler(err: Error, req: Request, res: Response<ErrorRespon
   const statusCode = res.statusCode !== 200 ? res.statusCode : 500;
   res.status(statusCode);
   res.json({
-    message: err.message,
-    stack: process.env.NODE_ENV === 'production' ? '🥞' : err.stack,
+    error: err.message
   });
 }
