@@ -9,6 +9,7 @@
     "build": "tsc",
     "lint": "eslint --fix './src/**/*.ts'",
     "test": "jest",
+    "seed": "ts-node prisma/seed.ts",
     "typecheck": "tsc --noEmit"
   },
   "keywords": [],
