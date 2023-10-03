@@ -100,4 +100,4 @@ npm start
 cp .env.example .env
 ```
 
-2. Complete the file to add your environment variables.
+2. Complete the file to add your environment variables. It is prepopulated with potential arguments (for Postgres connection) and commands you can run (for generating JWT secret tokens) to get your `.env` file up and running.
