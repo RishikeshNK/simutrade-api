@@ -4,7 +4,7 @@ SimuTrade API is a RESTful API built using [Express.js](https://expressjs.com/) 
 
 ## Getting Started
 
-[Swagger](https://swagger.io/) documentation would be written shortly. Please refer to [Route Map (Usage)](#usage) for more information regarding the implemented routes.
+[Swagger](https://swagger.io/) documentation would be written shortly. Please refer to [Route Map (Usage)](#route-map-usage) for more information regarding the implemented routes.
 
 ### Dependencies
 
