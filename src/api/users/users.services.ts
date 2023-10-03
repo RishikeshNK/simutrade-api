@@ -52,4 +52,21 @@ async function getAllHoldingsByUserId(userId: string) {
   }
 }
 
-export { findUserByEmail, findUserById, createUserByEmailAndPassword, getAllHoldingsByUserId };
+async function getAllTransactionsByUserId(userId: string) {
+  try {
+    const transactions = await db.transaction.findMany({
+      where: {
+        userId,
+      },
+      include: {
+        stock: true,
+      }
+    });
+
+    return transactions;
+  } catch (error) {
+    if (error instanceof Error) throw new Error(`Error fetching transactions: ${error.message}`);
+  }
+}
+
+export { findUserByEmail, findUserById, createUserByEmailAndPassword, getAllHoldingsByUserId, getAllTransactionsByUserId };

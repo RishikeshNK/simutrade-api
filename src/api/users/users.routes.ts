@@ -1,6 +1,6 @@
 import express, { Request, Response, NextFunction } from "express";
 import { isAuthenticated } from "../../middlewares";
-import { findUserById, getAllHoldingsByUserId } from "./users.services";
+import { findUserById, getAllHoldingsByUserId, getAllTransactionsByUserId } from "./users.services";
 import { omit } from "lodash";
 
 const router = express.Router();
@@ -35,6 +35,22 @@ router.get(
       const holdings = getAllHoldingsByUserId(userId);
 
       res.json({ holdings: holdings });
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
+router.get(
+  "/transactions",
+  isAuthenticated,
+  async (req: CustomRequest, res: Response, next: NextFunction) => {
+    try {
+      const { userId } = req.payload!;
+
+      const transactions = getAllTransactionsByUserId(userId);
+
+      res.json({ transactions: transactions });
     } catch (err) {
       next(err);
     }
