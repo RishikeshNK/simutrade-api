@@ -41,7 +41,7 @@ model Holding {
   id       String  @id @unique @default(uuid())
   userId   String
   User     User    @relation(fields: [userId], references: [id])
-  quantity Decimal
+  quantity Int
   stock    Stock   @relation(fields: [stockId], references: [id])
   stockId  String
 }
