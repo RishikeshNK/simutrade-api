@@ -89,6 +89,7 @@ npm start
 
 ### Future Plans
 - [ ] Implement the remaining REST endpoints. See [Route Map](#route-map-usage) for current progress.
+- [ ] Write Zod validation schemas for validating and type-checking requests.
 - [ ] Write a `seed.ts` script to fetch the latest closing prices of stocks (primarily in the S&P500) using a [static API](https://query2.finance.yahoo.com/v8/finance/chart/).
 - [ ] Write [Swagger](https://swagger.io/) documentation for the API.
 - [ ] Implement different user roles (e.g., admin, regular user) with varying levels of access.
