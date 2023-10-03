@@ -77,7 +77,11 @@ cd simutrade-api
 ```bash
 docker compose up -d
 ```
-4. Run the application
+5. Seed the database
+```bash
+npm run seed
+```
+6. Run the application
 
 ```bash
 npm start
