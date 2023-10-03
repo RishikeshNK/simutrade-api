@@ -4,7 +4,7 @@ SimuTrade API is a RESTful API built using [Express.js](https://expressjs.com/) 
 
 ## Getting Started
 
-[Swagger](https://swagger.io/) documentation would be written shortly. Please refer to [Route Map (Usage)](#route-map-usage) for more information regarding the implemented routes.
+[Swagger](https://swagger.io/) documentation would be written shortly. Please refer to [Route Map (Usage)](#route-map-usage) for more information regarding the implemented routes. For installation instructions, please follow the instructions in [Usage](#usage) below.
 
 ### Dependencies
 
@@ -13,7 +13,7 @@ SimuTrade API is a RESTful API built using [Express.js](https://expressjs.com/) 
 
 ### Route Map (Usage)
 - [x] POST `/api/v1/auth/register`
-    - Start by going to sending a POST request to `/api/v1/auth/register` and registering a new account.
+    - Start by sending a POST request to `/api/v1/auth/register` and registering a new account.
     - Request format:
         ```json
         {
@@ -21,9 +21,9 @@ SimuTrade API is a RESTful API built using [Express.js](https://expressjs.com/) 
             "password": "password"
         }
         ```
-    - Note down the accessToken returned and __set that as the bearer token__ (in Postman perhaps) by setting the "Authorization" header as `Bearer [accessToken]` where `accessToken` is the token you copied earlier.
+    - Note down the accessToken returned and __set that as the Bearer token__ (in Postman perhaps) by setting the "Authorization" header as `Bearer [accessToken]` where `[accessToken]` is the token you copied earlier. For more information on configuring request headers, see the [Postman documentation](https://learning.postman.com/docs/sending-requests/requests/#configuring-request-headers).
 - [x] POST `/api/v1/auth/login`
-    - If your `accessToken` has expired, send a POST request to `/api/v1/auth/login` and set the bearer token similar to the registration route.
+    - To log in to an existing account, send a POST request to `/api/v1/auth/login`. Copy the `accessToken` and set it as the Bearer token similar to the registration step.
     - Request format:
         ```json
         {
@@ -39,7 +39,7 @@ SimuTrade API is a RESTful API built using [Express.js](https://expressjs.com/) 
             "refreshToken": "[token]"
         }
         ```
-- [x] POST `/api/v1/auth/revokeRefreshTokens` (Do __not__ use in production)
+- [x] POST `/api/v1/auth/revokeRefreshTokens` (Do __not__ expose this end-point in a production environment)
     - In order to revoke tokens for a user (during a password reset perhaps), send a POST request to `/api/v1/auth/revokeRefreshTokens`. Do not expose this end-point in production (only for development purposes)!
     - Request format:
         ```json
@@ -47,6 +47,7 @@ SimuTrade API is a RESTful API built using [Express.js](https://expressjs.com/) 
             "userId": "[userId]"
         }
         ```
+    - One possible use case for this end-point is for allowing a password reset functionality in the future.
 - [x] GET `/api/v1/users/profile`
     - In order to get information about the logged-in user, send a GET request to `/api/v1/users/profile`.
 - [x] GET `/api/v1/users/holdings`
@@ -80,6 +81,16 @@ docker compose up -d
 ```bash
 npm start
 ```
+
+### Future Plans
+- [ ] Implement the remaining REST endpoints. See [Route Map](#route-map-usage) for current progress.
+- [ ] Write a `seed.ts` script to fetch the latest closing prices of stocks (primarily in the S&P500) using a [static API](https://query2.finance.yahoo.com/v8/finance/chart/).
+- [ ] Write [Swagger](https://swagger.io/) documentation for the API.
+- [ ] Implement different user roles (e.g., admin, regular user) with varying levels of access.
+- [ ] Implement email verification for new users to ensure the validity of email addresses using SMTP. As a result, implement a `/api/v1/auth/forgot-password` end-point.
+- [ ] Integrate with a real-time stock data provider to offer up-to-the-minute stock prices and market data. See [Alpaca](https://alpaca.markets/).
+- [ ] Write unit tests for the codebase.
+- [ ] Write a front-end for the API. Possibly port the application from [Express.js](https://expressjs.com/) to [Next.js](https://nextjs.org/). Consider potential hosting options such as [Vercel](https://vercel.com/dashboard).
 
 ### Setting up the environment
 
