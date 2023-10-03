@@ -40,7 +40,7 @@ SimuTrade API is a RESTful API built using [Express.js](https://expressjs.com/) 
         }
         ```
 - [x] POST `/api/v1/auth/revokeRefreshTokens` (Do __not__ expose this end-point in a production environment)
-    - In order to revoke tokens for a user (during a password reset perhaps), send a POST request to `/api/v1/auth/revokeRefreshTokens`. Do not expose this end-point in production (only for development purposes)!
+    - In order to revoke tokens for a user, send a POST request to `/api/v1/auth/revokeRefreshTokens`. Do not expose this end-point in production (only for development purposes)!
     - Request format:
         ```json
         {
