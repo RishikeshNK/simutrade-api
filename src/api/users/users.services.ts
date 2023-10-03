@@ -35,4 +35,21 @@ async function findUserById(id: string): Promise<User | null> {
   });
 }
 
-export { findUserByEmail, findUserById, createUserByEmailAndPassword };
+async function getAllHoldingsByUserId(userId: string) {
+  try {
+    const holdings = await db.holding.findMany({
+      where: {
+        userId,
+      },
+      include: {
+        stock: true,
+      },
+    });
+
+    return holdings;
+  } catch (error) {
+    if (error instanceof Error) throw new Error(`Error fetching holdings: ${error.message}`);
+  }
+}
+
+export { findUserByEmail, findUserById, createUserByEmailAndPassword, getAllHoldingsByUserId };

@@ -1,7 +1,7 @@
-import express, { Request, Response, NextFunction } from 'express';
-import { isAuthenticated } from '../../middlewares';
-import { findUserById } from './users.services';
-import { omit } from 'lodash';
+import express, { Request, Response, NextFunction } from "express";
+import { isAuthenticated } from "../../middlewares";
+import { findUserById, getAllHoldingsByUserId } from "./users.services";
+import { omit } from "lodash";
 
 const router = express.Router();
 
@@ -11,14 +11,34 @@ interface CustomRequest extends Request {
   };
 }
 
-router.get('/profile', isAuthenticated, async (req: CustomRequest, res: Response, next: NextFunction) => {
-  try {
-    const { userId } = req.payload!;
-    const user = await findUserById(userId);
-    res.json(omit(user, 'password'));
-  } catch (err) {
-    next(err);
+router.get(
+  "/profile",
+  isAuthenticated,
+  async (req: CustomRequest, res: Response, next: NextFunction) => {
+    try {
+      const { userId } = req.payload!;
+      const user = await findUserById(userId);
+      res.json(omit(user, "password"));
+    } catch (err) {
+      next(err);
+    }
   }
-});
+);
+
+router.get(
+  "/holdings",
+  isAuthenticated,
+  async (req: CustomRequest, res: Response, next: NextFunction) => {
+    try {
+      const { userId } = req.payload!;
+
+      const holdings = getAllHoldingsByUserId(userId);
+
+      res.json({ holdings: holdings });
+    } catch (err) {
+      next(err);
+    }
+  }
+);
 
 export default router;
