@@ -56,7 +56,7 @@ SimuTrade API is a RESTful API built using [Express.js](https://expressjs.com/) 
     - In order to get all the past transactions of the logged-in user, send a GET request to `/api/v1/users/transactions`
 - [x] GET `/api/v1/stocks/all`
     - In order to get all the tradeable stocks on SimuTrade, send a GET request to `/api/v1/stocks/all`.
-- [ ] POST `/api/v1/trade/quote`
+- [x] POST `/api/v1/trade/quote`
     - In order to get the quote of a specific quote, send a POST request to `/api/v1/stocks/quote`.
     - Request format:
         ```json
