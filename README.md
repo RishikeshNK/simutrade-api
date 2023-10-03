@@ -21,14 +21,14 @@ SimuTrade API is a RESTful API built using [Express.js](https://expressjs.com/) 
             "password": "password"
         }
         ```
-    - Note down the accessToken returned and __set that as the Bearer token__ (in Postman perhaps) by setting the "Authorization" header as `Bearer [accessToken]` where `[accessToken]` is the token you copied earlier. For more information on configuring request headers, see the [Postman documentation](https://learning.postman.com/docs/sending-requests/requests/#configuring-request-headers).
+    - Note down the `accessToken` returned and __set that as the Bearer token__ (in Postman perhaps) by setting the "Authorization" header as `Bearer [accessToken]` where `[accessToken]` is the token you copied earlier. For more information on configuring request headers, see the [Postman documentation](https://learning.postman.com/docs/sending-requests/requests/#configuring-request-headers).
 - [x] POST `/api/v1/auth/login`
     - To log in to an existing account, send a POST request to `/api/v1/auth/login`. Copy the `accessToken` and set it as the Bearer token similar to the registration step.
     - Request format:
         ```json
         {
-            "email": "test@example.com",
-            "password": "password"
+            "email": "[email]",
+            "password": "[password]"
         }
         ```
 - [x] POST `/api/v1/auth/refreshToken`
@@ -56,9 +56,16 @@ SimuTrade API is a RESTful API built using [Express.js](https://expressjs.com/) 
     - In order to get all the past transactions of the logged-in user, send a GET request to `/api/v1/users/transactions`
 - [x] GET `/api/v1/stocks/all`
     - In order to get all the tradeable stocks on SimuTrade, send a GET request to `/api/v1/stocks/all`.
+- [ ] POST `/api/v1/trade/quote`
+    - In order to get the quote of a specific quote, send a POST request to `/api/v1/stocks/quote`.
+    - Request format:
+        ```json
+        {
+            "ticker": "[ticker]"
+        }
+        ```
 - [ ] POST `/api/v1/trade/buy`
 - [ ] POST `/api/v1/trade/sell`
-- [ ] POST `/api/v1/trade/quote`
 
 ### Usage
 
