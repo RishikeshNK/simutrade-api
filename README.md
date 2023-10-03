@@ -70,7 +70,7 @@ SimuTrade API is a RESTful API built using [Express.js](https://expressjs.com/) 
         ```json
         {
             "ticker": "[ticker]",
-            "quantity": quantity
+            "quantity": "[quantity]"
         }
         ```
 - [ ] POST `/api/v1/stocks/sell`
