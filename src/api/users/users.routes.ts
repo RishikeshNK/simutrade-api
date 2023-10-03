@@ -32,7 +32,7 @@ router.get(
     try {
       const { userId } = req.payload!;
 
-      const holdings = getAllHoldingsByUserId(userId);
+      const holdings = await getAllHoldingsByUserId(userId);
 
       res.json({ holdings: holdings });
     } catch (err) {
@@ -48,7 +48,7 @@ router.get(
     try {
       const { userId } = req.payload!;
 
-      const transactions = getAllTransactionsByUserId(userId);
+      const transactions = await getAllTransactionsByUserId(userId);
 
       res.json({ transactions: transactions });
     } catch (err) {
