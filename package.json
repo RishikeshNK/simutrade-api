@@ -29,7 +29,7 @@
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "morgan": "^1.10.0",
-    "prisma": "^5.3.1",
+    "prisma": "^5.4.2",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
@@ -43,9 +43,9 @@
     "@types/node": "^20.8.4",
     "@types/supertest": "^2.0.14",
     "@types/uuid": "^9.0.4",
-    "@typescript-eslint/eslint-plugin": "^6.7.5",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.7.3",
-    "eslint": "^8.42.0",
+    "eslint": "^8.51.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-import": "^2.27.5",
