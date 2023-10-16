@@ -45,7 +45,7 @@
     "@types/uuid": "^9.0.4",
     "@typescript-eslint/eslint-plugin": "^6.7.5",
     "@typescript-eslint/parser": "^6.7.3",
-    "eslint": "^8.42.0",
+    "eslint": "^8.51.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-import": "^2.27.5",
